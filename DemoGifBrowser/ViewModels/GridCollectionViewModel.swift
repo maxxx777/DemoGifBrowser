@@ -7,3 +7,12 @@
 //
 
 import Foundation
+
+struct GridCollectionViewModel {
+    
+    private var item: GifItem
+    
+    init(item: GifItem) {
+        self.item = item
+    }
+}
