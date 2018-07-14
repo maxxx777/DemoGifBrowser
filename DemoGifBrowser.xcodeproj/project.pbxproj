@@ -21,7 +21,7 @@
 		75C43D0020FA5ED300C14091 /* GridCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75C43CFF20FA5ED300C14091 /* GridCollectionViewCell.swift */; };
 		75C43D0520FA5F0D00C14091 /* GridViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75C43D0420FA5F0D00C14091 /* GridViewController.swift */; };
 		75C43D0720FA5F1E00C14091 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75C43D0620FA5F1E00C14091 /* DetailViewController.swift */; };
-		75C43D0920FA5F3500C14091 /* GridCollectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75C43D0820FA5F3500C14091 /* GridCollectionViewModel.swift */; };
+		75C43D0920FA5F3500C14091 /* GridCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75C43D0820FA5F3500C14091 /* GridCellViewModel.swift */; };
 		75C43D1020FA5F8200C14091 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 75C43D0B20FA5F8200C14091 /* Assets.xcassets */; };
 		75C43D1120FA5F8200C14091 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 75C43D0C20FA5F8200C14091 /* LaunchScreen.storyboard */; };
 		75C43D1220FA5F8200C14091 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 75C43D0E20FA5F8200C14091 /* Main.storyboard */; };
@@ -75,7 +75,7 @@
 		75C43CFF20FA5ED300C14091 /* GridCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridCollectionViewCell.swift; sourceTree = "<group>"; };
 		75C43D0420FA5F0D00C14091 /* GridViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridViewController.swift; sourceTree = "<group>"; };
 		75C43D0620FA5F1E00C14091 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
-		75C43D0820FA5F3500C14091 /* GridCollectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridCollectionViewModel.swift; sourceTree = "<group>"; };
+		75C43D0820FA5F3500C14091 /* GridCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridCellViewModel.swift; sourceTree = "<group>"; };
 		75C43D0B20FA5F8200C14091 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		75C43D0D20FA5F8200C14091 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		75C43D0F20FA5F8200C14091 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -235,7 +235,7 @@
 			isa = PBXGroup;
 			children = (
 				75C43CF820FA5E6000C14091 /* GridViewModel.swift */,
-				75C43D0820FA5F3500C14091 /* GridCollectionViewModel.swift */,
+				75C43D0820FA5F3500C14091 /* GridCellViewModel.swift */,
 				75C43CFC20FA5E7600C14091 /* DetailViewModel.swift */,
 			);
 			path = ViewModels;
@@ -497,7 +497,7 @@
 			files = (
 				75C43D0020FA5ED300C14091 /* GridCollectionViewCell.swift in Sources */,
 				75C43CEF20FA5E0900C14091 /* AppFactory.swift in Sources */,
-				75C43D0920FA5F3500C14091 /* GridCollectionViewModel.swift in Sources */,
+				75C43D0920FA5F3500C14091 /* GridCellViewModel.swift in Sources */,
 				75C43CED20FA5DFD00C14091 /* AppCoordinator.swift in Sources */,
 				75C43D0720FA5F1E00C14091 /* DetailViewController.swift in Sources */,
 				75C43CF920FA5E6000C14091 /* GridViewModel.swift in Sources */,
