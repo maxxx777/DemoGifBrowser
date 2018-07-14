@@ -10,38 +10,55 @@ import Foundation
 
 protocol GridViewModel {
     
-    func fetchItems(with completion: @escaping ([GridCollectionViewModel], Error?) -> Void)
+    func fetchItems(with completion: @escaping (Error?) -> Void)
+    func numberOfItems() -> Int
+    func cellViewModel(at index: Int) -> GridCellViewModel?
 }
 
 class GridViewModelImp: GridViewModel {
     
     private let giphyService: GiphyService
+    private var dataSource: [GridCellViewModel]?
     
     init(giphyService: GiphyService) {
         
         self.giphyService = giphyService
     }
     
-    func fetchItems(with completion: @escaping ([GridCollectionViewModel], Error?) -> Void) {
+    func fetchItems(with completion: @escaping (Error?) -> Void) {
         
-        giphyService.fetchGifItems { (gifItems, error) in
+        giphyService.fetchGifItems { [weak self] (gifItems, error) in
             
             guard let _ = error else {
                 
-                let cellViewModels = gifItems.map {
-                    GridCollectionViewModel(item: $0)
+                self?.dataSource = gifItems.map {
+                    GridCellViewModel(item: $0)
                 }
                 
                 DispatchQueue.main.async {
-                    completion(cellViewModels, nil)
+                    completion(nil)
                 }
                 
                 return
             }
             
             DispatchQueue.main.async {
-                completion([], error)
+                completion(error)
             }
         }
+    }
+    
+    func numberOfItems() -> Int {
+        
+        return dataSource?.count ?? 0
+    }
+    
+    func cellViewModel(at index: Int) -> GridCellViewModel? {
+        
+        guard let cellViewModels = dataSource else { return nil }
+        
+        guard cellViewModels.count > index else { return nil }
+        
+        return cellViewModels[index]
     }
 }

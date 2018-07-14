@@ -13,18 +13,13 @@ private let reuseIdentifier = "Cell"
 class GridViewController: UICollectionViewController {
 
     //dependencies
-    var viewModel: GridViewModel!
+    var viewModel: GridViewModel!    
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Register cell classes
-        self.collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
-
-        // Do any additional setup after loading the view.
+        configureView()
+        fetchItems()
     }
 
     override func didReceiveMemoryWarning() {
@@ -32,33 +27,23 @@ class GridViewController: UICollectionViewController {
         // Dispose of any resources that can be recreated.
     }
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using [segue destinationViewController].
-        // Pass the selected object to the new view controller.
-    }
-    */
-
     // MARK: UICollectionViewDataSource
 
     override func numberOfSections(in collectionView: UICollectionView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
 
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of items
-        return 0
+        return viewModel.numberOfItems()
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath)
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! GridCollectionViewCell
     
-        // Configure the cell
+        let cellViewModel = viewModel.cellViewModel(at: indexPath.item)
+        
+        cell.viewModel = cellViewModel
     
         return cell
     }
@@ -93,5 +78,72 @@ class GridViewController: UICollectionViewController {
     
     }
     */
+    
+    
 
+}
+
+//MARK: Configure view
+
+extension GridViewController {
+    
+    func configureView() {
+        
+        configureCollectionViewLayout()
+    }
+    
+    func configureCollectionViewLayout() {
+        
+        let flowLayout = collectionViewLayout as! UICollectionViewFlowLayout
+        
+        flowLayout.itemSize = CGSize(width: 44.0, height: 44.0)        
+    }
+}
+
+//MARK: View States
+
+extension GridViewController {
+    
+    func updateView(with error: Error) {
+        
+        showErrorAlert(with: error.localizedDescription)
+    }
+    
+    func updateView() {
+        
+        collectionView?.reloadData()
+    }
+}
+
+//MARK: Other actions
+
+extension GridViewController {
+
+    func fetchItems() {
+        
+        viewModel.fetchItems { [weak self] error in
+            
+            guard let err = error else {
+                
+                self?.updateView()
+                
+                return
+            }
+            
+            self?.updateView(with: err)
+        }
+    }
+    
+    func showErrorAlert(with message: String) {
+        
+        let alert = UIAlertController(title: "Error",
+                                      message: message,
+                                      preferredStyle: .alert)
+        let action = UIAlertAction(title: "OK",
+                                   style: .cancel,
+                                   handler: nil)
+        alert.addAction(action)
+        
+        present(alert, animated: true, completion: nil)
+    }
 }
