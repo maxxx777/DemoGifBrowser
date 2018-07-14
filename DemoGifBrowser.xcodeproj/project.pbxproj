@@ -25,6 +25,7 @@
 		75C43D1220FA5F8200C14091 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 75C43D0E20FA5F8200C14091 /* Main.storyboard */; };
 		75C43D1620FA708800C14091 /* NetworkingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75C43D1520FA708800C14091 /* NetworkingTests.swift */; };
 		75C43D1820FA7BC600C14091 /* SuccessResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75C43D1720FA7BC600C14091 /* SuccessResult.swift */; };
+		75C43D1C20FA813E00C14091 /* GiphyServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75C43D1B20FA813E00C14091 /* GiphyServiceTests.swift */; };
 		75C43D1E20FA81B200C14091 /* NetworkingMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75C43D1D20FA81B200C14091 /* NetworkingMock.swift */; };
 		75C43D2020FA840400C14091 /* ImageItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75C43D1F20FA840400C14091 /* ImageItem.swift */; };
 		75C43D2220FA841E00C14091 /* ImagesItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75C43D2120FA841E00C14091 /* ImagesItem.swift */; };
@@ -72,6 +73,7 @@
 		75C43D0F20FA5F8200C14091 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		75C43D1520FA708800C14091 /* NetworkingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingTests.swift; sourceTree = "<group>"; };
 		75C43D1720FA7BC600C14091 /* SuccessResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuccessResult.swift; sourceTree = "<group>"; };
+		75C43D1B20FA813E00C14091 /* GiphyServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GiphyServiceTests.swift; sourceTree = "<group>"; };
 		75C43D1D20FA81B200C14091 /* NetworkingMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingMock.swift; sourceTree = "<group>"; };
 		75C43D1F20FA840400C14091 /* ImageItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageItem.swift; sourceTree = "<group>"; };
 		75C43D2120FA841E00C14091 /* ImagesItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagesItem.swift; sourceTree = "<group>"; };
@@ -144,6 +146,7 @@
 			children = (
 				75C43CC320FA5CAF00C14091 /* Info.plist */,
 				75C43D1520FA708800C14091 /* NetworkingTests.swift */,
+				75C43D1B20FA813E00C14091 /* GiphyServiceTests.swift */,
 				75C43D1D20FA81B200C14091 /* NetworkingMock.swift */,
 			);
 			path = DemoGifBrowserTests;
@@ -385,6 +388,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				75C43D1620FA708800C14091 /* NetworkingTests.swift in Sources */,
+				75C43D1C20FA813E00C14091 /* GiphyServiceTests.swift in Sources */,
 				75C43D1E20FA81B200C14091 /* NetworkingMock.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -14,7 +14,8 @@ class AppFactory {
     
     func gridViewController() -> GridViewController {
         
-        let giphyService = GiphyServiceImp()
+        let networking = Networking<[GifItem]>()
+        let giphyService = GiphyServiceImp(networking: networking)
         let viewModel = GridViewModelImp(giphyService: giphyService)
         let viewController = storyboard.instantiateViewController(withIdentifier: "GridViewController") as! GridViewController
         
