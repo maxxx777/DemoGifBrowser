@@ -7,3 +7,11 @@
 //
 
 import Foundation
+
+protocol GiphyService {
+    
+}
+
+class GiphyServiceImp: GiphyService {
+    
+}

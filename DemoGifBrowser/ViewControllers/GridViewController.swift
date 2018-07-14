@@ -12,6 +12,9 @@ private let reuseIdentifier = "Cell"
 
 class GridViewController: UICollectionViewController {
 
+    //dependencies
+    var viewModel: GridViewModel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 

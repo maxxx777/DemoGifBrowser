@@ -7,3 +7,22 @@
 //
 
 import Foundation
+
+protocol GridViewModel {
+    
+    func fetchItems()
+}
+
+class GridViewModelImp: GridViewModel {
+    
+    private let giphyService: GiphyService
+    
+    init(giphyService: GiphyService) {
+        
+        self.giphyService = giphyService
+    }
+    
+    func fetchItems() {
+        
+    }
+}
