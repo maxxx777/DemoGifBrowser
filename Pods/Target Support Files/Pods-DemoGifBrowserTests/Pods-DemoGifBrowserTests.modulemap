@@ -1,0 +1,6 @@
+framework module Pods_DemoGifBrowserTests {
+  umbrella header "Pods-DemoGifBrowserTests-umbrella.h"
+
+  export *
+  module * { export * }
+}
