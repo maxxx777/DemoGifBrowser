@@ -8,9 +8,7 @@
 
 import Foundation
 
-fileprivate typealias DataTaskResult = (Data?, URLResponse?, Error?) -> Void
-
-class Networking<T:Decodable> {
+class Networking<T:Codable> {
     
     private let provider: URLSession
     
@@ -19,22 +17,22 @@ class Networking<T:Decodable> {
         self.provider = provider
     }
     
-    func getItems(with urlString: String, completion: @escaping ([T], Error?) -> ()) {
+    func getItems(with urlString: String, completion: @escaping (SuccessResult<T>?, Error?) -> ()) {
         
         guard let url = URL(string: urlString) else { return }
         
         let task = provider.dataTask(with: url) { (data_, response_, error_) in
             
             guard let data = data_ else {
-                completion([], error_)
+                completion(nil, error_)
                 return
             }
             
             do {
-                let items = try JSONDecoder().decode([T].self, from: data)
-                completion(items, nil)
+                let response = try JSONDecoder().decode(SuccessResult<T>.self, from: data)
+                completion(response, nil)
             } catch let parseError {
-                completion([], parseError)
+                completion(nil, parseError)
             }
             
         }

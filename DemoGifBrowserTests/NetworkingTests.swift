@@ -25,17 +25,18 @@ class NetworkingTests: XCTestCase {
         
         //Given
         let testItem = TestItem(itemId: "test_id", name: "test_name")
-        let encodedData = try? JSONEncoder().encode([testItem])
+        let successData = SuccessResult<[TestItem]>(data: [testItem])
+        let encodedData = try? JSONEncoder().encode(successData)
         
         let providerMock = URLSessionMock()
         providerMock.data = encodedData
         
-        let networking = Networking<TestItem>(provider: providerMock)
+        let networking = Networking<[TestItem]>(provider: providerMock)
         
         //When
-        networking.getItems(with: "test_url_string") { (items, _) in
+        networking.getItems(with: "test_url_string") { (result, _) in
             //Then
-            XCTAssertEqual(items.last!, testItem, "items should be equal")
+            XCTAssertEqual(result?.data.last!, testItem, "items should be equal")
         }
     }
     
